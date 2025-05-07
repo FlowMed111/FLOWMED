@@ -169,4 +169,8 @@ def result():
     return render_template('result.html', active_page='detection')
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug=True)
+=======
+    app.run(debug=True)
+>>>>>>> a2dff389922953456320acfb9432ca0e1eecce23
