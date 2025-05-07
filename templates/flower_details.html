@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .details-container {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #fdfdfd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .flower-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .flower-header h1 {
+            font-size: 2.2rem;
+            color: #4CAF50;
+        }
+
+        .flower-description {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .disease {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .disease h3 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        .disease p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div class="details-container">
+        <div class="flower-header">
+            <h1>{{ flower_data.name }}</h1>
+            <p class="flower-description">{{ flower_data.description }}</p>
+        </div>
+
+        <div class="disease-list">
+            {% for disease in flower_data.diseases %}
+                <div class="disease">
+                    <h3>{{ disease.name }}</h3>
+                    <p><strong>Cause:</strong> {{ disease.cause }}</p>
+                    <p><strong>Symptoms:</strong> {{ disease.symptoms }}</p>
+                    <p><strong>Management:</strong> {{ disease.management }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="nav-buttons">
+            <a href="{{ url_for('flower_details', flower_name=prev_flower) }}" class="nav-btn">← Previous Flower</a>
+            <a href="{{ url_for('flower_details', flower_name=next_flower) }}" class="nav-btn">Next Flower →</a>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="back-btn">← Back to Home</a>
+    </div>
+{% endblock %}

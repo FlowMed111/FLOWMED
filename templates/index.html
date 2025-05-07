@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .title-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.4);
+            color: black;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Flowers Section */
+        .flowers-section {
+            background-color: #f5f5f5;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .flowers-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .flowers-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .flower-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+
+        .flower-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .flower-item h3 {
+            font-size: 1.1rem;
+            color: black;
+        }
+    </style>
+
+    <div class="hero">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="title-box">
+            <img src="{{ url_for('static', filename='images/Center.jpg') }}" alt="FlowerMed Logo" class="logo">
+            <h1>A Web Development for Flowers Disease Detection and Diagnosis</h1>
+        </div>
+    </div>
+
+    <!-- Flowers Section -->
+    <div class="flowers-section">
+        <h2>Our Flower Focus</h2>
+        <p>We specialize in detecting and diagnosing diseases for the following 15 flowers. Browse through and explore the details for each plant:</p>
+
+        <div class="flowers-list">
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='sunflower') }}">
+                    <img src="{{ url_for('static', filename='images/sunflower.jpg') }}" alt="Sunflower">
+                    <h3>Sunflower (Helianthus annuus)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='chrysanthemum') }}">
+                    <img src="{{ url_for('static', filename='images/chrysanthemum.jpg') }}" alt="Chrysanthemum">
+                    <h3>Chrysanthemum (Chrysanthemum morifolium)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='orchid') }}">
+                    <img src="{{ url_for('static', filename='images/orchid.jpg') }}" alt="Orchid">
+                    <h3>Orchid (Phalaenopsis, Dendrobium)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='marigold') }}">
+                    <img src="{{ url_for('static', filename='images/marigold.jpg') }}" alt="Marigold">
+                    <h3>Marigold (Tagetes spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='bougainvillea') }}">
+                    <img src="{{ url_for('static', filename='images/bougainvillea.jpg') }}" alt="Bougainvillea">
+                    <h3>Bougainvillea (Bougainvillea spectabilis)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='hibiscus') }}">
+                    <img src="{{ url_for('static', filename='images/hibiscus.jpg') }}" alt="Hibiscus">
+                    <h3>Hibiscus (Hibiscus rosa-sinensis)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='gerbera') }}">
+                    <img src="{{ url_for('static', filename='images/gerbera.jpg') }}" alt="Gerbera">
+                    <h3>Gerbera (Gerbera jamesonii)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='lily') }}">
+                    <img src="{{ url_for('static', filename='images/lily.jpg') }}" alt="Lily">
+                    <h3>Lily (Lilium spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='rose') }}">
+                    <img src="{{ url_for('static', filename='images/Rose.jpg') }}" alt="Rose">
+                    <h3>Rose (Rosa spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='violet') }}">
+                    <img src="{{ url_for('static', filename='images/violet.jpg') }}" alt="Violet">
+                    <h3>Violet (Viola spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='zinnia') }}">
+                    <img src="{{ url_for('static', filename='images/zinnia.jpg') }}" alt="Zinnia">
+                    <h3>Zinnia (Zinnia elegans)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='tulip') }}">
+                    <img src="{{ url_for('static', filename='images/tulip.jpg') }}" alt="Tulip">
+                    <h3>Tulip (Tulipa spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='aster') }}">
+                    <img src="{{ url_for('static', filename='images/aster.jpg') }}" alt="Aster">
+                    <h3>Aster (Aster spp.)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='tuberose') }}">
+                    <img src="{{ url_for('static', filename='images/tuberose.jpg') }}" alt="Tuberose">
+                    <h3>Tuberose (Polianthes tuberosa)</h3>
+                </a>
+            </div>
+            <div class="flower-item">
+                <a href="{{ url_for('flower_details', flower_name='daffodil') }}">
+                    <img src="{{ url_for('static', filename='images/daffodil.jpg') }}" alt="Daffodil">
+                    <h3>Daffodil (Narcissus spp.)</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

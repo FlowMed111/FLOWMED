@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}About | Flower Disease Detection{% endblock %}
+
+{% block content %}
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='images/aboutbg.jpg') }}");
+            background-size: cover; /* Ensure the background covers the entire page */
+            background-position: center center;
+            background-attachment: fixed; /* Ensure the background doesn't scroll */
+            color: #333;
+            padding: 20px;
+        }
+
+        .about-section {
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent black box (60% opacity) */
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); /* Optional: Adds a blur effect behind the box */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff; /* White text for better contrast */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #fff; /* White text for better contrast */
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ddd; /* Light gray text for readability */
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        ul li {
+            font-size: 1.1rem;
+            color: #ddd; /* Light gray text for readability */
+            margin-bottom: 10px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .cta-btn:hover {
+            background-color: #45a049;
+        }
+
+        .about-section ul {
+            padding-left: 20px;
+        }
+
+        .about-section ul li::before {
+            content: "✔️";
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+    </style>
+
+    <div class="about-section">
+        <h1>About Flower Disease Detection and Diagnosis</h1>
+        <p>Welcome to FlowerMed, your go-to platform for detecting and diagnosing diseases in flowers. Our website is designed to help you easily identify common diseases that affect popular flowers.</p>
+        
+        <h2>Our Mission</h2>
+        <p>We aim to empower gardeners, farmers, and plant enthusiasts by providing a quick and accurate tool for identifying diseases in flowers. With a focus on education, prevention, and care, we are dedicated to making flower disease diagnosis accessible to everyone.</p>
+
+        <h2>How It Works</h2>
+        <p>Our platform uses predefined data to analyze your selected flower and provide potential diseases that may be affecting it. Simply choose a flower from our list, and we will present you with possible diseases, symptoms, and management tips to help keep your flowers healthy and thriving.</p>
+
+        <h2>Our Flower Focus</h2>
+        <p>We specialize in detecting and diagnosing diseases for the following flowers:</p>
+        <ul>
+            <li>Sunflower (Helianthus annuus)</li>
+            <li>Chrysanthemum (Chrysanthemum morifolium)</li>
+            <li>Orchid (Phalaenopsis, Dendrobium)</li>
+            <li>Marigold (Tagetes spp.)</li>
+            <li>Bougainvillea (Bougainvillea spectabilis)</li>
+            <li>Hibiscus (Hibiscus rosa-sinensis)</li>
+            <li>Gerbera (Gerbera jamesonii)</li>
+            <li>Lily (Lilium spp.)</li>
+            <li>Rose (Rosa spp.)</li>
+            <li>Violet (Viola spp.)</li>
+            <li>Zinnia (Zinnia elegans)</li>
+            <li>Tulip (Tulipa spp.)</li>
+            <li>Aster (Aster spp.)</li>
+            <li>Tuberose (Polianthes tuberosa)</li>
+            <li>Daffodil (Narcissus spp.)</li>
+        </ul>
+
+        <p>Our platform is designed to help diagnose diseases for these specific flowers based on the most common symptoms and issues that affect them.</p>
+
+        <h2>What's Coming Soon?</h2>
+        <p>While we currently focus on these 15 popular flowers, we are continually working on expanding our list. Soon, we will be adding more flowers to help broaden our diagnosis coverage. Stay tuned for updates!</p>
+
+        <a href="{{ url_for('index') }}" class="cta-btn">Back to Home</a>
+    </div>
+{% endblock %}
